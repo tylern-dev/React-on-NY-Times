@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static('nytreact/build'));
 
 // setup routes =======
-
+require('./routes/api-routes')
 // ====================
 
 // DB Connection
