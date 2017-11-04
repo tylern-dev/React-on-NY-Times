@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
-const mongooseConnection = () => {
+module.exports = function(){
     mongoose.Promise = global.Promise;
 
     process.env.MONGODB_URI || 'mongodb://localhost/reactreadinglist',
@@ -9,4 +9,3 @@ const mongooseConnection = () => {
     }
 }
 
-export default mongooseConnection;

@@ -15,18 +15,13 @@ app.use(bodyParser.json());
 // serve the react app
 app.use(express.static('nytreact/build'));
 
-// setup routes =======
-require('./routes/api-routes')
-// ====================
+// db connection
+require('./config/connection')
 
-// DB Connection
-mongoose.Promise = global.Promise;
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/nytReactDB",
-    {
-        useMongoClient: true
-    }
-);
+// API routes
+require('./routes/api-routes')
+
+
 
 // start api server
 app.listen(port, function() {
