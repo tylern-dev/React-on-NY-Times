@@ -1,6 +1,14 @@
+const path = require('path');
+let db = require(path.join(__dirname, '../models/articles'));
 
-module.exports = function (app){
-    app.get("/", (req, res) => {
-        res.send('Test')
-    })
+
+
+module.exports = function (app) {
+    app.get("/api/saved", (req, res) => {
+        db.Article.find({})
+            .then((result) => res.send(result))
+            .catch((error) => res.send(error))
+    });
+
+    
 }
