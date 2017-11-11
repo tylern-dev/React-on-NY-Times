@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
-import Search from '../components/Search'
+import ArticleResults from '../components/ArticleResults';
+import Search from '../components/Search';
 
 export default class SearchPage extends Component {
+    state ={
+        articles: []
+    }
+
+    handleArticle = (articles) => {
+        // console.log(articles);
+        this.setState({
+            articles: articles
+        })
+        
+    }
+
     render(){
         return(
             <div>
             <h1>SearchPage</h1>
-            <Search />
+
+            <Search callBackFromParent={this.handleArticle}/>
+            {this.state.articles.map(article => <ArticleResults key={article._id} articleData={article}/>)}
+            
             </div>
         )
     }

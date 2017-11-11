@@ -8,9 +8,9 @@ class App extends Component{
     render(){
         return(
             <div className="container">
-                <Switch>
+                
                     <Route path="/" component={MainLayout} />
-                </Switch>
+
             </div>
         )
     }
