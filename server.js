@@ -19,7 +19,7 @@ app.use(express.static('nytreact/build'));
 require('./config/connection')
 
 // API routes
-require('./routes/api-routes')
+require('./routes/api-routes')(app)
 
 
 
