@@ -2,14 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let ArticleSchema = new Schema({
-    title: {
+    headline: {
         type: String
     },
-    pub_date: {
+    snippet: {
         type: String
     },
     url:{
         type: String
+    },
+    saved:{
+        type: Boolean
     }
 });
 

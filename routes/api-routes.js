@@ -10,5 +10,9 @@ module.exports = function (app) {
             .catch((error) => res.send(error))
     });
 
+    app.post("/api/saved", (req, res) =>{
+        console.log(req.body)
+    })
+
     
 }

@@ -1,11 +1,18 @@
 import React from 'react';
 import API from '../utils/API';
+import ArticleResults from '../components/ArticleResults';
 
 export default class Search extends React.Component {
     state = {
+        articles: [],
         topic: '',
         startYear:'',
         endYear:''
+    }
+    
+    componentWillUpdate = (nextProps, nextState) =>{
+        console.log('updating ......');
+        console.log(nextState);
     }
 
     handleInputChange = (event) =>{
@@ -15,21 +22,26 @@ export default class Search extends React.Component {
         })
     }
     
-
     handleSubmit = (event) => {
         const {topic,startYear, endYear} = this.state;
         event.preventDefault();
         
-        console.log(this.state)
-        
         API.searchArticles(topic, startYear, endYear)
         .then(response =>{
             const articles = response.data.response.docs
-            // sends the article array back to the parent
-            this.props.callBackFromParent(articles)
+            this.setState({
+                articles: articles
+            })
         })
         .catch(error => console.log(error))
+
+        this.setState({
+            topic: '',
+            startYear:'',
+            endYear:''
+        })
     }
+
     
     
     
@@ -51,6 +63,7 @@ export default class Search extends React.Component {
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Search</button>
                 </form>
+                {this.state.articles.map(article => <ArticleResults key={article._id} articleData={article}/>)}
             </div>
         )
     }
