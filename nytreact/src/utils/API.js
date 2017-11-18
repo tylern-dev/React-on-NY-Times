@@ -21,5 +21,13 @@ export default{
 
     saveArticle: function(data){
         return axios.post('/api/saved', data)
+    },
+
+    getSavedArticles: function(){
+        return axios.get('/api/saved')
+    },
+
+    deleteArticle: function(id){
+        return axios.delete('/api/saved/'+id)
     }
 }
