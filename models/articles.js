@@ -11,6 +11,9 @@ let ArticleSchema = new Schema({
     url:{
         type: String
     },
+    pub_date:{
+        type: String
+    },
     saved:{
         type: Boolean
     }

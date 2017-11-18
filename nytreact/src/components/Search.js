@@ -10,10 +10,7 @@ export default class Search extends React.Component {
         endYear:''
     }
     
-    componentWillUpdate = (nextProps, nextState) =>{
-        console.log('updating ......');
-        console.log(nextState);
-    }
+    
 
     handleInputChange = (event) =>{
         const { name, value } = event.target;
@@ -29,17 +26,14 @@ export default class Search extends React.Component {
         API.searchArticles(topic, startYear, endYear)
         .then(response =>{
             const articles = response.data.response.docs
+            console.log('articles----------\n', articles)
             this.setState({
                 articles: articles
             })
         })
         .catch(error => console.log(error))
 
-        this.setState({
-            topic: '',
-            startYear:'',
-            endYear:''
-        })
+        
     }
 
     
@@ -63,7 +57,9 @@ export default class Search extends React.Component {
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Search</button>
                 </form>
-                {this.state.articles.map(article => <ArticleResults key={article._id} articleData={article}/>)}
+                {this.state.articles.map(article => {
+                    return <ArticleResults key={article._id} articleData={article} />
+                })}
             </div>
         )
     }
