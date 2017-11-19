@@ -12,8 +12,11 @@ const ArticleResults = (props) => (
             ? <h2>{props.articleData.headline.main}</h2>
             : <h2>{props.articleData.headline}</h2> }
 
-          {!props.articleData.pub_date ? '' :  <p>Publication Date:{props.articleData.pub_date}</p> }
-          <p>{props.articleData.snippet} <a href={props.articleData.web_url}>Read More</a></p>
+          {!props.articleData.pub_date 
+            ? '' 
+            :  <p>Publication Date: {props.articleData.pub_date}</p> }
+            
+          <p>{props.articleData.snippet} <a href={props.articleData.web_url} target="_blank">Read More</a></p>
           
           { props.articleData.saved
             ? <DeleteBtn key={props.articleData._id} deleteArticleData={props.articleData} onArticleDelete={props.onArticleDelete}/>

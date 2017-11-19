@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return(
-        <h1>Home Page</h1>
+        <h1>NYT Article Database</h1>
     )
 }
 

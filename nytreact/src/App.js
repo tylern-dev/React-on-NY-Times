@@ -9,7 +9,7 @@ class App extends Component{
         return(
             <div className="container">
                 
-                    <Route path="/" component={MainLayout} />
+                <Route path="/" component={MainLayout} />
 
             </div>
         )
