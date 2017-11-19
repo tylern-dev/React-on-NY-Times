@@ -1,8 +1,7 @@
 
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -16,7 +15,7 @@ app.use(bodyParser.json());
 app.use(express.static('nytreact/build'));
 
 // db connection
-require('./config/connection')
+require('./config/connection')(mongoose)
 
 // API routes
 require('./routes/api-routes')(app)
