@@ -25,11 +25,16 @@ export default class TopStories extends Component {
     }
 
     render(){
+        let mapSize = this.props.limit;
         return(
             <div>
-                <h1>Top Stories</h1>
+                {this.props.pageTitle
+                    ? <h1>{this.props.pageTitle}</h1>
+                    : <h1>Top Stories</h1>
+                }
+                
                 <div className="row justify-content-center">
-                    {this.state.articles.map(article => {
+                    {this.state.articles.slice(0,mapSize).map(article => {
                         return article.multimedia.map(pic =>{
                             if(pic.format === 'superJumbo'){
                                 return <TopStoriesCard key={article.short_url} img={pic.url} headline={article.title} snippet={article.abstract} url={article.short_url} saveArticleData={article}/>

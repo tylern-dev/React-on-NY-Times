@@ -1,12 +1,11 @@
 import React from 'react';
 import {NavLink, Link} from 'react-router-dom';
+import styled from 'styled-components';
 import './style.css';
 
-const Nav = (props) =>{
-
-    return(
+const Nav = (props) =>(
        
-        <nav className="navbar">
+        <StyledNav className="navbar">
             <div className="nav-wrapper">
                 <Link to="/" className="navbar-brand mc-auto">NYT Articles</Link>
                 <div className="nav nav-pills" id="nav-mobile">
@@ -15,10 +14,13 @@ const Nav = (props) =>{
                     <NavLink to="/saved-stories" activeClassName="active" className="nav-link nav-item">Saved</NavLink> 
                 </div>
             </div>
-        </nav>
+        </StyledNav>
         
     )
 
-}
 
 export default Nav;
+
+const StyledNav = styled.nav`
+    margin-bottom: 20px;
+`;
