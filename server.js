@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 
 // serve the react app
-app.use(express.static('nytreact/build'));
+app.use(express.static('client/build'));
 
 // db connection
 require('./config/connection')(mongoose)
