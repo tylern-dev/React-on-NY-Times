@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 
 // serve the react app
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // db connection
 require('./config/connection')(mongoose)
