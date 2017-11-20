@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const path = require('path');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 //configure body parser for the AJAX requests
 app.use(bodyParser.urlencoded({ extended:false }));
